@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31624.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IKF", "IKF\IKF.csproj", "{2C72F737-1E04-43A5-A6EF-5FC43BE3C380}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2C72F737-1E04-43A5-A6EF-5FC43BE3C380}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C72F737-1E04-43A5-A6EF-5FC43BE3C380}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C72F737-1E04-43A5-A6EF-5FC43BE3C380}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C72F737-1E04-43A5-A6EF-5FC43BE3C380}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {98683EE6-1CA6-4A89-B579-1A4AD34F8644}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,152 @@
+﻿@model IKFTEST.Models.User
+
+@{
+    ViewBag.Title = "AddUSer";
+}
+
+<h2 style="text-align:center;font-weight:bold;border-bottom:2px solid orange;padding-bottom:10px;">UserRagistation</h2>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal" style="margin-top:20px;">
+
+
+    <div class="row">
+        <div class="col-md-offset-2" style="text-align:left;padding-top:15px;">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-offset-3">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-2" style="text-align:left;padding-top:15px;">
+            @Html.LabelFor(model => model.DOB, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-offset-3">
+                <input type="date" class="form-control" id="DOB" name="DOB" />
+                @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-2" style="text-align:left;padding-top:15px;">
+            @Html.LabelFor(model => model.Designation, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-offset-3">
+                @Html.EditorFor(model => model.Designation, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Designation, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-2 " style="text-align:left;padding-top:15px;">
+            @Html.LabelFor(model => model.Skills, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-offset-3">
+                @*@Html.DropDownListFor(model => model.Skills, new { htmlAttributes = new { @class = "form-control" } })*@
+
+                @Html.DropDownListFor(model => model.Skills, new List<SelectListItem>
+                 {
+                new SelectListItem{ Text="Select", Value = "" },
+                    new SelectListItem{ Text="ASP.NET MVC", Value = "ASP.NET MVC " },
+                     new SelectListItem{ Text="ASP.NET WEB API", Value = "ASP.NET WEB API" },
+                           new SelectListItem{ Text="ENTITY FRAMEWORK", Value = "ENTITY FRAMEWORK" },
+                       new SelectListItem{ Text="DOCUSIGN", Value = "DOCUSIGN" },
+                        new SelectListItem{ Text="ORCHARD CMS", Value = "ORCHARD CMS" },
+                                       new SelectListItem{ Text="JQUERY", Value = "JQUERY" },
+                                new SelectListItem{ Text="ZENDESK", Value = "ZENDESK" },
+                              new SelectListItem{ Text="LINQ", Value = "LINQ" },
+                                new SelectListItem{ Text="C#", Value = "C#" },
+                            new SelectListItem{ Text="GOOGLE ANALYTICS", Value = "GOOGLE ANALYTICS" },
+
+
+                         } ,new { @class = "form-control" ,id= "example-getting-started" })
+
+
+
+                        @Html.ValidationMessageFor(model => model.Skills, "", new { @class = "text-danger" })
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="form-group" style="margin-top:20px;">
+        <div class="col-md-offset-5 col-md-10">
+            <input type="submit" value="Save" onclick="return validation()" style="background-color:green" class="btn btn-primary" />
+        </div>
+        @Html.HiddenFor(Model => Model.id)
+
+
+    </div>
+    @Html.Partial("PartialVIew", (IEnumerable<IKFTEST.Models.User>)ViewBag.list)
+</div>
+}
+
+
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+}
+
+<script type="text/javascript">
+        $(document).ready(function () {
+            $('#example-getting-started').multiselect();
+        });
+    </script>
+
+
+@if (!string.IsNullOrEmpty(ViewBag.msg))
+{
+    <script>
+                    alert('@ViewBag.msg')
+    </script>
+}
+
+<script>
+    function validation() {
+        if ($('#Name').val().trim() == '' || $('#Name').val().trim() == null) {
+
+            $('#Name').focus();
+            alert("Plese Enter Name");
+            return false;
+
+        }
+        if ($('#DOB').val().trim() == '' || $('#DOB').val().trim() == null) {
+
+            $('#DOB').focus();
+            alert("Plese Enter Date of Birth");
+            return false;
+
+        }
+
+
+        if ($('#Designation').val().trim() == '' || $('#Designation').val().trim() == null) {
+
+            $('#Designation').focus();
+            alert("Plese Enter Name");
+            return false;
+
+        }
+
+        if ($('#Skills').val().trim() == '' || $('#Skills').val().trim() == null || $('#Skills').val().trim() == "") {
+
+            $('#Skills').focus();
+            alert("Plese Enter Skills");
+            return false;
+
+        }
+        return true;
+       
+    }
+</script>
